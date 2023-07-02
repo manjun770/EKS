@@ -1,0 +1,11 @@
+---
+- hosts: webservers
+  tasks:
+    - name: Configure Nginx and deploy app in nginx
+      apt: name=nginx state=latest
+    - name: "testing"
+      copy: content="Manjunath" dest=/var/www/html/index.nginx-debian.html
+    - name: " Restart "
+      service:
+        name: nginx
+        state: restarted
